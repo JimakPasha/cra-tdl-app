@@ -13,9 +13,9 @@ export default class App extends Component {
 		super(props);
 		this.state = {
 			data : [
-				{ label: 'Lorem-1', important: false, like: false, id: 1 },
-				{ label: 'Lorem-2', important: true, like: false, id: 2 },
-				{ label: 'Lorem-3', important: false, like: false, id: 3 }
+				{ label: 'Lorem-1', important: false, like: false, id: 120052454888 },
+				{ label: 'Lorem-2', important: true, like: false, id: 56766800045672 },
+				{ label: 'Lorem-3', important: false, like: false, id: 35456400056 }
 			],
 			term: '',
 			filter: 'all'
@@ -26,8 +26,6 @@ export default class App extends Component {
 		this.onToggleLiked = this.onToggleLiked.bind(this);
 		this.onUpdateSearch = this.onUpdateSearch.bind(this);
 		this.onFilterSelect = this.onFilterSelect.bind(this);
-
-		this.maxId = 4;
 	}
 
 	addItem(body) {
@@ -35,7 +33,7 @@ export default class App extends Component {
 			label: body,
 			important: false,
 			like: false,
-			id: this.maxId++
+			id: Math.floor(Date.now() / Math.random())
 		}
 		this.setState(({data}) => {
 			const newArr = [...data, newItem];
